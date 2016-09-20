@@ -1,8 +1,8 @@
+
 import {
   ComponentFactoryResolver, KeyValueDiffers, ViewContainerRef, Injectable,
   SimpleChange, KeyValueChangeRecord, ComponentFactory, ComponentRef
 } from '@angular/core';
-
 
 
 export interface IComponentInjectorConfig {
@@ -63,46 +63,30 @@ export class ComponentInjectorService {
   }
 
   private _injectPropertyBinds(config:IComponentInjectorConfig, componentRef:any) {
-    let propMetadata:any = (<any>Reflect).getMetadata('propMetadata', config.component);
+    // http://stackoverflow.com/questions/34465214/access-meta-annotation-inside-class-typescript
+    let propMetadata:any = (<any>Reflect).getOwnMetadata('propMetadata', config.component);
     for(let prop in propMetadata) {
-      if(propMetadata.hasOwnProperty(prop)) {
-        if(propMetadata[prop].length > 0) {
-
-          propMetadata[prop].forEach((metadata:any) => {
-            console.log(metadata);
-            // if(metadata instanceof InputMetadata) {
-            //   if(config.inputs && config.inputs[prop]) {
-            //     componentRef.instance[prop] = config.inputs[prop];
-            //   } else {
-            //     console.warn('Missing input [' + prop + '] for ' + config.component.name);
-            //   }
-            // } else if(metadata instanceof OutputMetadata) {
-            //   if(config.outputs && (typeof config.outputs[prop] === 'function')) {
-            //     componentRef.instance[prop].subscribe(config.outputs[prop]);
-            //   } else {
-            //     console.warn('Missing output (' + prop + ') for ' + config.component.name);
-            //   }
-            // }
-          });
-        }
+      if(propMetadata[prop].length > 0) {
+        propMetadata[prop].forEach((metadata:any) => {
+          switch(metadata.toString()) {
+            case '@Input':
+              if(config.inputs && config.inputs[prop]) {
+                componentRef.instance[prop] = config.inputs[prop];
+              } else {
+                console.warn('Missing input [' + prop + '] for ' + config.component.name);
+              }
+              break;
+            case '@Output':
+              if(config.outputs && (typeof config.outputs[prop] === 'function')) {
+                componentRef.instance[prop].subscribe(config.outputs[prop]);
+              } else {
+                console.warn('Missing output (' + prop + ') for ' + config.component.name);
+              }
+              break;
+          }
+        });
       }
     }
-
-    // if(config.inputs) {
-    //   for(let prop in config.inputs) {
-    //     componentRef.instance[prop] = config.inputs[prop];
-    //   }
-    // }
-    //
-    //
-    // if(config.outputs) {
-    //   for (let prop in config.outputs) {
-    //     if (typeof config.outputs[prop] === 'function') {
-    //       componentRef.instance[prop].subscribe(config.outputs[prop]);
-    //     }
-    //   }
-    // }
-
   }
 
 }

@@ -1,13 +1,14 @@
 {
   "name": "ng2-component-injector",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Angular 2 component injector",
-  "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "main": "index.js",
+  "author": "valentin",
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/lifaon74/ng2-component-injector"
+  },
   "dependencies": {
     "@angular/core": "2.0.0",
     "rxjs": "5.0.0-beta.12",
