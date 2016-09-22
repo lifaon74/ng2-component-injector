@@ -17,8 +17,8 @@ export class MyComponent implements OnChanges {
 
 
 @Component({
-  selector: 'sav-app',
-  templateUrl: 'app.component.html'
+  selector: 'my-app',
+  template: '<template #contentContainer></template>'
 })
 export class AppComponent implements AfterViewInit {
 
