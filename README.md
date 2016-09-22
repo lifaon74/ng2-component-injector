@@ -1,6 +1,9 @@
+[![npm version](https://badge.fury.io/js/ng2-component-injector.svg)](https://badge.fury.io/js/ng2-component-injector)
+
 # ng2-component-injector
 
-Simple injector for angular 2 components. You just have to provide : container, component class, inputs and ouputs
+Simple injector for angular 2 components. You just have to provide : container, component class, inputs and ouputs.
+See example/ if needed.
 
 ## Install
 ```
@@ -14,10 +17,7 @@ npm install ng2-component-injector --save
 export class AppModule { }
 ```
 
-Then inject ComponentInjectorService into app.module.ts
-
 ## Documentation
-
 ### ComponentInjectorService
 ```ts
 inject(config: IComponentInjectorConfig):Promise<ComponentRef<any>>
