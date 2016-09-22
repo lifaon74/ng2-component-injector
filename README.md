@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/ng2-component-injector.svg)](https://badge.fury.io/js/ng2-component-injector)
+[![npm version](https://badge.fury.io/js/ng2-component-injector.svg)](https://www.npmjs.com/package/ng2-component-injector)
 
 # ng2-component-injector
 
