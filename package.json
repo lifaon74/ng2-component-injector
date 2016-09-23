@@ -1,8 +1,8 @@
 {
   "name": "ng2-component-injector",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Angular 2 component injector",
-  "main": "index.js",
+  "main": "ng2-component-injector.js",
   "author": "valentin",
   "license": "MIT",
   "repository" : {
