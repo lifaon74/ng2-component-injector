@@ -1,23 +1,24 @@
 {
   "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "es2015",
     "target": "es5",
-    "module": "commonjs",
-    "declaration": false,
-    "removeComments": true,
-    "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
-    "pretty": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitUseStrict": false,
-    "noFallthroughCasesInSwitch": true
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "types": ["node"],
+    "lib": ["es2015", "dom"]
   },
+  "files": [
+    "ng2-component-injector"
+  ],
   "exclude": [
     "node_modules"
   ],
-  "compileOnSave": true
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true
+  }
 }

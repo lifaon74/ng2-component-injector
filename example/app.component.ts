@@ -1,5 +1,5 @@
-import {Component, ViewChild, OnChanges, AfterViewInit, ViewContainerRef, Input} from '@angular/core';
-import {ComponentInjectorService} from '../lib/component.injector.service';
+import { Component, ViewChild, OnChanges, AfterViewInit, ViewContainerRef, Input } from '@angular/core';
+import { ComponentInjectorService } from '../ng2-component-injector';
 
 
 @Component({
@@ -7,13 +7,12 @@ import {ComponentInjectorService} from '../lib/component.injector.service';
   template: '<span>my component : {{ input }}</span>'
 })
 export class MyComponent implements OnChanges {
-  @Input() input:string;
+  @Input() input: string;
 
   ngOnChanges() {
     console.log(this.input);
   }
 }
-
 
 
 @Component({
@@ -24,7 +23,7 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild('contentContainer', { read: ViewContainerRef }) contentContainerRef: ViewContainerRef;
 
-  constructor(public componentInjectorService:ComponentInjectorService) {
+  constructor(public componentInjectorService: ComponentInjectorService) {
 
   }
 

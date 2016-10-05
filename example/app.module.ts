@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
-import {ComponentInjectorService} from '../lib/component.injector.service';
-import {AppComponent, MyComponent} from './app.component';
+import { NgModule } from '@angular/core';
+import { ComponentInjectorService } from '../ng2-component-injector';
+import { AppComponent, MyComponent } from './app.component';
 
 @NgModule({
   providers: [ComponentInjectorService],
@@ -8,4 +8,5 @@ import {AppComponent, MyComponent} from './app.component';
   entryComponents: [MyComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
