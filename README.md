@@ -9,24 +9,24 @@ See example/ if needed.
 ```
 npm install ng2-component-injector --save
 ```
-```
+```ts
 @NgModule({
-    providers: [ComponentInjectorService],
+    imports: [Ng2ComponentInjectorModule],
     entryComponents: [ /* Put here your components to be injected */  ],
 })
 export class AppModule { }
 ```
 
 ## Documentation
-### ComponentInjectorService
+### Ng2ComponentInjectorService
 ```ts
-inject(config: IComponentInjectorConfig):Promise<ComponentRef<any>>
+inject(config: INg2ComponentInjectorConfig):Promise<ComponentRef<any>>
 ```
-Inject an angtular 2 component.
+Inject an angular 2 component.
 
-### IComponentInjectorConfig
+### INg2ComponentInjectorConfig
 ```ts
-export interface IComponentInjectorConfig {
+export interface INg2ComponentInjectorConfig {
   container:ViewContainerRef;
   component:any;
   inputs?:any;
@@ -71,4 +71,17 @@ The list of outputs to bind. Example:
     onChange: () => { console.log('change'); } // @Ouput() onChange:EventEmiter = new EventEmitter();
  }
 ```
+
+### Ng2ComponentInjectorComponent
+```html
+<ng2-component-injector
+    [config]="{
+        component: myComponent,
+        inputs: {
+            id: 13
+        }
+    }"
+></ng2-component-injector>
+```
+Inject an angular 2 component. The config is the same as `INg2ComponentInjectorConfig` exept that you don't need to provide a container.
 
