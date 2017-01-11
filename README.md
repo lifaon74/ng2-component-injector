@@ -20,13 +20,13 @@ export class AppModule { }
 ## Documentation
 ### Ng2ComponentInjectorService
 ```ts
-inject(config: INg2ComponentInjectorConfig):Promise<ComponentRef<any>>
+create(config: Ng2ComponentInjectorConfig, index?: number): ComponentRef<any>
 ```
-Inject an angular 2 component.
+Create and inject an angular 2 component.
 
-### INg2ComponentInjectorConfig
+### Ng2ComponentInjectorConfig
 ```ts
-export interface INg2ComponentInjectorConfig {
+export interface Ng2ComponentInjectorConfig {
   container:ViewContainerRef;
   component:any;
   inputs?:any;
@@ -83,5 +83,5 @@ The list of outputs to bind. Example:
     }"
 ></ng2-component-injector>
 ```
-Inject an angular 2 component. The config is the same as `INg2ComponentInjectorConfig` exept that you don't need to provide a container.
+Inject an angular 2 component. The config is the same as `Ng2ComponentInjectorConfig` except that you don't need to provide a container.
 

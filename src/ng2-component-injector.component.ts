@@ -7,15 +7,13 @@ import { Ng2ComponentInjectorService } from './ng2-component-injector.service';
   template: `<template #contentContainer></template>`
 })
 export class Ng2ComponentInjectorComponent {
-  @Input() config:any;
+  @Input() config: any;
 
   @ViewChild('contentContainer', { read: ViewContainerRef }) contentContainerRef: ViewContainerRef;
 
-  componentRef:ComponentRef<any>;
+  componentRef: ComponentRef<any>;
 
-  constructor(
-    private ng2ComponentInjectorService: Ng2ComponentInjectorService
-  ) {
+  constructor(private ng2ComponentInjectorService: Ng2ComponentInjectorService) {
     // not empty
   }
 
@@ -27,10 +25,7 @@ export class Ng2ComponentInjectorComponent {
       }
 
       this.config.container = this.contentContainerRef;
-      this.ng2ComponentInjectorService.inject(this.config)
-        .then((componentRef:ComponentRef<any>) => {
-          this.componentRef = componentRef;
-        });
+      this.componentRef = this.ng2ComponentInjectorService.create(this.config);
     }
   }
 }
